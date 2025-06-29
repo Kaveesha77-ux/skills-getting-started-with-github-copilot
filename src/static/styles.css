@@ -74,6 +74,33 @@ section h3 {
   margin-bottom: 8px;
 }
 
+.activity-card-participants {
+  margin-top: 12px;
+  padding: 10px;
+  background-color: #eef2fb;
+  border-radius: 4px;
+}
+
+.activity-card-participants-title {
+  font-weight: bold;
+  color: #3949ab;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.activity-card-participants-list {
+  list-style-type: disc;
+  margin-left: 20px;
+  color: #333;
+  font-size: 15px;
+  padding-left: 0;
+}
+
+.activity-card-participants-list li {
+  margin-bottom: 2px;
+  word-break: break-all;
+}
+
 .form-group {
   margin-bottom: 15px;
 }
