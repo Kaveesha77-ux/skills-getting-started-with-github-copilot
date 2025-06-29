@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
+// Initialize app
+  fetchActivities();document.addEventListener("DOMContentLoaded", () => {
   const activitiesList = document.getElementById("activities-list");
   const activitySelect = document.getElementById("activity");
   const signupForm = document.getElementById("signup-form");
@@ -20,11 +21,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const spotsLeft = details.max_participants - details.participants.length;
 
+        // Add pretty participants section
+        const participantsHTML = `
+          <div class="activity-card-participants">
+            <div class="activity-card-participants-title">Participants:</div>
+            <ul class="activity-card-participants-list">
+              ${
+                details.participants.length > 0
+                  ? details.participants
+                      .map(
+                        (participant) =>
+                          `<li title="${participant}">${participant}</li>`
+                      )
+                      .join("")
+                  : '<li style="color:#888;font-style:italic;">No participants yet</li>'
+              }
+            </ul>
+          </div>
+        `;
+
         activityCard.innerHTML = `
           <h4>${name}</h4>
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+          ${participantsHTML}
         `;
 
         activitiesList.appendChild(activityCard);
